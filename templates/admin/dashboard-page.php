@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wrap rpf-wrap">
 	<h1 class="rpf-page-title">
 		<span class="dashicons dashicons-share-alt2"></span>
-		RePostFlow
+		<?php esc_html_e( 'RePostFlow', 'repostflow' ); ?>
 		<span class="rpf-version">v<?php echo esc_html( RPF_VERSION ); ?></span>
 	</h1>
 
@@ -168,25 +168,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</a>
 					</td>
 					<td>
-						<?php if ( $net ) : ?>
+						<?php
+						$network_labels = array(
+							'twitter'   => __( 'X (Twitter)', 'repostflow' ),
+							'facebook'  => __( 'Facebook', 'repostflow' ),
+							'instagram' => __( 'Instagram', 'repostflow' ),
+							'linkedin'  => __( 'LinkedIn', 'repostflow' ),
+							'telegram'  => __( 'Telegram', 'repostflow' ),
+							'pinterest' => __( 'Pinterest', 'repostflow' ),
+							'threads'   => __( 'Threads', 'repostflow' ),
+							'bluesky'   => __( 'Bluesky', 'repostflow' ),
+							'discord'   => __( 'Discord', 'repostflow' ),
+							'mastodon'  => __( 'Mastodon', 'repostflow' ),
+						);
+						if ( $net ) :
+							?>
 							<span style="color:<?php echo esc_attr( $net->get_color() ); ?>">
 								<?php echo $net->get_icon(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</span>
 							<?php echo esc_html( $net->get_label() ); ?>
 						<?php else : ?>
-							<?php echo esc_html( ucfirst( $entry->network ) ); ?>
+							<?php echo esc_html( isset( $network_labels[ $entry->network ] ) ? $network_labels[ $entry->network ] : ucfirst( $entry->network ) ); ?>
 						<?php endif; ?>
 					</td>
 					<td>
-						<?php if ( 'published' === $entry->status ) : ?>
-							<span class="rpf-badge rpf-badge-success"><?php esc_html_e( 'Published', 'repostflow' ); ?></span>
-						<?php elseif ( 'failed' === $entry->status ) : ?>
-							<span class="rpf-badge rpf-badge-error" title="<?php echo esc_attr( $entry->response ); ?>"><?php esc_html_e( 'Failed', 'repostflow' ); ?></span>
-						<?php elseif ( 'queued' === $entry->status ) : ?>
-							<span class="rpf-badge rpf-badge-pending"><?php esc_html_e( 'Queued', 'repostflow' ); ?></span>
-						<?php else : ?>
-							<span class="rpf-badge"><?php echo esc_html( ucfirst( $entry->status ) ); ?></span>
-						<?php endif; ?>
+						<?php
+						$status_labels = array(
+							'published'  => __( 'Published', 'repostflow' ),
+							'failed'     => __( 'Failed', 'repostflow' ),
+							'queued'     => __( 'Queued', 'repostflow' ),
+							'processing' => __( 'Processing', 'repostflow' ),
+							'skipped'    => __( 'Skipped by filter', 'repostflow' ),
+						);
+						$status_label  = isset( $status_labels[ $entry->status ] ) ? $status_labels[ $entry->status ] : ucfirst( $entry->status );
+						$badge_class   = 'published' === $entry->status ? 'rpf-badge-success' : ( 'failed' === $entry->status ? 'rpf-badge-error' : ( 'queued' === $entry->status ? 'rpf-badge-pending' : '' ) );
+						?>
+						<span class="rpf-badge <?php echo esc_attr( $badge_class ); ?>" <?php echo 'failed' === $entry->status && ! empty( $entry->response ) ? 'title="' . esc_attr( $entry->response ) . '"' : ''; ?>>
+							<?php echo esc_html( $status_label ); ?>
+						</span>
 					</td>
 					<td><?php echo esc_html( $entry->shared_at ? $entry->shared_at : $entry->created_at ); ?></td>
 					<td>

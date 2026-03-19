@@ -112,16 +112,26 @@ class RPF_Admin {
 			true
 		);
 
+		// Get network labels for JavaScript.
+		$networks       = $this->plugin->networks->get_all();
+		$network_labels = array();
+		foreach ( $networks as $slug => $network ) {
+			$network_labels[ $slug ] = $network->get_label();
+		}
+
 		wp_localize_script( 'rpf-admin', 'rpfAdmin', array(
-			'ajaxUrl'  => admin_url( 'admin-ajax.php' ),
-			'nonce'    => wp_create_nonce( 'rpf_admin_nonce' ),
-			'strings'  => array(
-				'testing'    => __( 'Testing connection...', 'repostflow' ),
-				'connected'  => __( 'Connected!', 'repostflow' ),
-				'failed'     => __( 'Connection failed', 'repostflow' ),
-				'sharing'    => __( 'Sharing...', 'repostflow' ),
-				'shared'     => __( 'Shared successfully!', 'repostflow' ),
-				'confirm'    => __( 'Are you sure?', 'repostflow' ),
+			'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
+			'nonce'          => wp_create_nonce( 'rpf_admin_nonce' ),
+			'networkLabels'  => $network_labels,
+			'strings'        => array(
+				'testing'     => __( 'Testing connection...', 'repostflow' ),
+				'connected'   => __( 'Connected!', 'repostflow' ),
+				'failed'      => __( 'Connection failed', 'repostflow' ),
+				'sharing'     => __( 'Sharing...', 'repostflow' ),
+				'shared'      => __( 'Shared successfully!', 'repostflow' ),
+				'confirm'     => __( 'Are you sure?', 'repostflow' ),
+				'shareNow'    => __( 'Share Now', 'repostflow' ),
+				'post'        => __( 'Post', 'repostflow' ),
 			),
 		) );
 	}

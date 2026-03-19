@@ -1,0 +1,785 @@
+# Copyright (C) 2025 Joel Chala
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: RePostFlow 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/joelchala/repostflow/issues\n"
+"POT-Creation-Date: 2025-03-19 12:00:00+00:00\n"
+"PO-Revision-Date: 2025-03-19 12:00:00+00:00\n"
+"Last-Translator: Joel Chala <joel@kaggchala.com>\n"
+"Language-Team: Spanish (Colombia)\n"
+"Language: es_CO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+"X-Domain: repostflow\n"
+
+msgid "%d items in queue"
+msgstr "%d elementos en cola"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Activate"
+msgstr "Activar"
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "Add UTM tracking parameters to shared URLs"
+msgstr "Agregar parámetros UTM a las URLs compartidas"
+
+msgid "Advanced"
+msgstr "Avanzado"
+
+msgid "All Networks"
+msgstr "Todas las redes"
+
+msgid "All Statuses"
+msgstr "Todos los estados"
+
+msgid "API Key (Consumer Key)"
+msgstr "Clave API (Consumer Key)"
+
+msgid "API Secret (Consumer Secret)"
+msgstr "Secreto API (Consumer Secret)"
+
+msgid "App Password"
+msgstr "Contraseña de aplicación"
+
+msgid "Are you sure?"
+msgstr "¿Está seguro?"
+
+msgid "Attach the featured image to social media posts when available"
+msgstr "Adjuntar la imagen destacada a las publicaciones en redes sociales cuando esté disponible"
+
+msgid "Automatically delete share history older than this."
+msgstr "Eliminar automáticamente el historial de compartidos más antiguo que esto."
+
+msgid "Automatically share posts to connected social networks"
+msgstr "Compartir automáticamente publicaciones en redes sociales conectadas"
+
+msgid "Auto-sharing is ACTIVE"
+msgstr "Compartido automático está ACTIVO"
+
+msgid "Auto-sharing is PAUSED"
+msgstr "Compartido automático está PAUSADO"
+
+msgid "Available Template Variables"
+msgstr "Variables de plantilla disponibles"
+
+msgid "Available variables listed below."
+msgstr "Variables disponibles listadas a continuación."
+
+msgid "Bluesky not configured"
+msgstr "Bluesky no está configurado"
+
+msgid "Board ID is required for Pinterest"
+msgstr "Se requiere ID de tablero para Pinterest"
+
+msgid "Board ID is required"
+msgstr "Se requiere ID de tablero"
+
+msgid "Board ID"
+msgstr "ID de tablero"
+
+msgid "Bot Token"
+msgstr "Token de bot"
+
+msgid "Bot Username (optional)"
+msgstr "Nombre de usuario del bot (opcional)"
+
+msgid "Caption Template"
+msgstr "Plantilla de descripción"
+
+msgid "Channel username (e.g., @mychannel) or numeric chat ID. The bot must be admin of the channel."
+msgstr "Nombre de usuario del canal (ej. @micanal) o ID numérico de chat. El bot debe ser administrador del canal."
+
+msgid "Chat ID / Channel Username"
+msgstr "ID de chat / Nombre de usuario del canal"
+
+msgid "Clear Queue"
+msgstr "Vaciar cola"
+
+msgid "Comma-separated categories"
+msgstr "Categorías separadas por comas"
+
+msgid "Comma-separated tags"
+msgstr "Etiquetas separadas por comas"
+
+msgid "Connected as %s"
+msgstr "Conectado como %s"
+
+msgid "Connected as @%s"
+msgstr "Conectado como @%s"
+
+msgid "Connected Networks"
+msgstr "Redes conectadas"
+
+msgid "Connected to page: %s"
+msgstr "Conectado a la página: %s"
+
+msgid "Connected"
+msgstr "Conectado"
+
+msgid "Connected!"
+msgstr "¡Conectado!"
+
+msgid "Connection failed"
+msgstr "Conexión fallida"
+
+msgid "Cooldown Period"
+msgstr "Período de espera"
+
+msgid "Could not authenticate with Bluesky"
+msgstr "No se pudo autenticar con Bluesky"
+
+msgid "Could not retrieve user ID"
+msgstr "No se pudo obtener el ID de usuario"
+
+msgid "Create a webhook in your Discord channel: Settings → Integrations → Webhooks → New Webhook"
+msgstr "Cree un webhook en su canal de Discord: Configuración → Integraciones → Webhooks → Nuevo Webhook"
+
+msgid "Create an app password at Settings → App passwords in Bluesky."
+msgstr "Cree una contraseña de aplicación en Configuración → Contraseñas de aplicación en Bluesky."
+
+msgid "Custom PDS URL if using self-hosted. Default: https://bsky.social"
+msgstr "URL PDS personalizada si usa alojamiento propio. Predeterminado: https://bsky.social"
+
+msgid "Custom username for the webhook. Leave empty to use the webhook default."
+msgstr "Nombre de usuario personalizado para el webhook. Déjelo vacío para usar el predeterminado del webhook."
+
+msgid "Dashboard"
+msgstr "Panel"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "days"
+msgstr "días"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+msgid "Discord Markdown supported: **bold**, *italic*, [link](url). Available variables listed below."
+msgstr "Markdown de Discord soportado: **negrita**, *cursiva*, [enlace](url). Variables disponibles listadas a continuación."
+
+msgid "Discord not configured"
+msgstr "Discord no está configurado"
+
+msgid "Enable sharing to %s"
+msgstr "Habilitar compartir en %s"
+
+msgid "Enable Auto-Sharing"
+msgstr "Habilitar compartido automático"
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Eligible Posts"
+msgstr "Publicaciones elegibles"
+
+msgid "Every 12 Hours"
+msgstr "Cada 12 horas"
+
+msgid "Every 2 Days"
+msgstr "Cada 2 días"
+
+msgid "Every 2 Hours"
+msgstr "Cada 2 horas"
+
+msgid "Every 3 Days"
+msgstr "Cada 3 días"
+
+msgid "Every 4 Hours"
+msgstr "Cada 4 horas"
+
+msgid "Every 6 Hours"
+msgstr "Cada 6 horas"
+
+msgid "Every 8 Hours"
+msgstr "Cada 8 horas"
+
+msgid "Example: urn:li:person:ABC123 or urn:li:organization:12345"
+msgstr "Ejemplo: urn:li:person:ABC123 o urn:li:organization:12345"
+
+msgid "Exclude Categories"
+msgstr "Excluir categorías"
+
+msgid "Facebook not configured"
+msgstr "Facebook no está configurado"
+
+msgid "Facebook Page Access Token"
+msgstr "Token de acceso de página de Facebook"
+
+msgid "Failed (7 days)"
+msgstr "Fallidos (7 días)"
+
+msgid "Failed"
+msgstr "Fallido"
+
+msgid "Failed to create media container"
+msgstr "Error al crear contenedor de medios"
+
+msgid "Failed to create thread container"
+msgstr "Error al crear contenedor de hilo"
+
+msgid "Failed to publish to Instagram"
+msgstr "Error al publicar en Instagram"
+
+msgid "Filter"
+msgstr "Filtrar"
+
+msgid "Followers only"
+msgstr "Solo seguidores"
+
+msgid "From X Developer Portal → App → Keys and tokens"
+msgstr "Desde X Developer Portal → App → Keys and tokens"
+
+msgid "General"
+msgstr "General"
+
+msgid "Get it from @BotFather on Telegram. Example: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+msgstr "Obténgalo de @BotFather en Telegram. Ejemplo: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+
+msgid "Get it from Meta for Developers → Threads API → Generate Access Token"
+msgstr "Obténgalo de Meta for Developers → Threads API → Generate Access Token"
+
+msgid "Get it from Pinterest Developer Portal → Apps → Your App → Generate Token"
+msgstr "Obténgalo de Pinterest Developer Portal → Apps → Su App → Generate Token"
+
+msgid "Get it from your Mastodon instance: Settings → Development → New application → Your access token"
+msgstr "Obténgalo de su instancia de Mastodon: Configuración → Desarrollo → Nueva aplicación → Su token de acceso"
+
+msgid "Handle / Email"
+msgstr "Handle / Correo electrónico"
+
+msgid "History"
+msgstr "Historial"
+
+msgid "How many posts to share each time the schedule runs."
+msgstr "Cuántas publicaciones compartir cada vez que se ejecute el programador."
+
+msgid "How often RePostFlow should select and share posts."
+msgstr "Con qué frecuencia RePostFlow debe seleccionar y compartir publicaciones."
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Include Categories"
+msgstr "Incluir categorías"
+
+msgid "Include Featured Image"
+msgstr "Incluir imagen destacada"
+
+msgid "Instagram Business Account ID"
+msgstr "ID de cuenta de negocios de Instagram"
+
+msgid "Instagram not configured"
+msgstr "Instagram no está configurado"
+
+msgid "Instagram requires an image. Post skipped (no featured image)."
+msgstr "Instagram requiere una imagen. Publicación omitida (sin imagen destacada)."
+
+msgid "Instance URL and Access Token are required"
+msgstr "Se requiere URL de instancia y token de acceso"
+
+msgid "Instance URL"
+msgstr "URL de instancia"
+
+msgid "Invalid access token"
+msgstr "Token de acceso inválido"
+
+msgid "Invalid bot token"
+msgstr "Token de bot inválido"
+
+msgid "Invalid credentials"
+msgstr "Credenciales inválidas"
+
+msgid "Invalid ID"
+msgstr "ID inválido"
+
+msgid "Invalid webhook URL format"
+msgstr "Formato de URL de webhook inválido"
+
+msgid "Invalid webhook URL"
+msgstr "URL de webhook inválida"
+
+msgid "Leave empty to include all categories. Hold Ctrl/Cmd to select multiple."
+msgstr "Déjelo vacío para incluir todas las categorías. Mantenga Ctrl/Cmd para seleccionar varias."
+
+msgid "Line break"
+msgstr "Salto de línea"
+
+msgid "Link"
+msgstr "Enlace"
+
+msgid "LinkedIn not configured"
+msgstr "LinkedIn no está configurado"
+
+msgid "Log Retention"
+msgstr "Retención de registro"
+
+msgid "Long-lived Page Access Token from Graph API Explorer or your app."
+msgstr "Token de acceso de página de larga duración desde Graph API Explorer o su aplicación."
+
+msgid "Markdown"
+msgstr "Markdown"
+
+msgid "MarkdownV2"
+msgstr "MarkdownV2"
+
+msgid "Mastodon not configured"
+msgstr "Mastodon no está configurado"
+
+msgid "Max 2200 characters. Instagram requires an image for every post."
+msgstr "Máximo 2200 caracteres. Instagram requiere una imagen para cada publicación."
+
+msgid "Max 280 characters. Available variables listed below."
+msgstr "Máximo 280 caracteres. Variables disponibles listadas a continuación."
+
+msgid "Max 300 characters. Available variables listed below."
+msgstr "Máximo 300 caracteres. Variables disponibles listadas a continuación."
+
+msgid "Max 3000 characters."
+msgstr "Máximo 3000 caracteres."
+
+msgid "Max 4096 characters. Use HTML tags: <b>, <i>, <a>, <code>."
+msgstr "Máximo 4096 caracteres. Use etiquetas HTML: <b>, <i>, <a>, <code>."
+
+msgid "Max 500 characters. Available variables listed below."
+msgstr "Máximo 500 caracteres. Variables disponibles listadas a continuación."
+
+msgid "Message formatting mode."
+msgstr "Modo de formato de mensaje."
+
+msgid "Message Preview"
+msgstr "Vista previa del mensaje"
+
+msgid "Message Template"
+msgstr "Plantilla de mensaje"
+
+msgid "Message"
+msgstr "Mensaje"
+
+msgid "Minimum Post Age"
+msgstr "Edad mínima de publicación"
+
+msgid "Needs setup"
+msgstr "Necesita configuración"
+
+msgid "Network not configured"
+msgstr "Red no configurada"
+
+msgid "Networks Active"
+msgstr "Redes activas"
+
+msgid "Networks"
+msgstr "Redes"
+
+msgid "Next run"
+msgstr "Siguiente ejecución"
+
+msgid "Next run: %s"
+msgstr "Siguiente ejecución: %s"
+
+msgid "Next Run"
+msgstr "Siguiente ejecución"
+
+msgid "Next Scheduled Run"
+msgstr "Siguiente ejecución programada"
+
+msgid "No eligible posts found"
+msgstr "No se encontraron publicaciones elegibles"
+
+msgid "No history yet"
+msgstr "Aún no hay historial"
+
+msgid "No networks configured"
+msgstr "No hay redes configuradas"
+
+msgid "No posts are waiting to be shared. New posts will be added when the schedule runs."
+msgstr "No hay publicaciones esperando ser compartidas. Se agregarán nuevas cuando se ejecute el programador."
+
+msgid "Not configured"
+msgstr "No configurado"
+
+msgid "Not scheduled"
+msgstr "No programado"
+
+msgid "Not scheduled. Save settings to schedule."
+msgstr "No programado. Guarde los ajustes para programar."
+
+msgid "OAuth 2.0 access token with w_member_social or w_organization_social scope."
+msgstr "Token de acceso OAuth 2.0 con alcance w_member_social o w_organization_social."
+
+msgid "Once Daily"
+msgstr "Una vez al día"
+
+msgid "Once Weekly"
+msgstr "Una vez a la semana"
+
+msgid "Only share posts older than this many days. Set 0 to include all."
+msgstr "Solo compartir publicaciones más antiguas que estos días. Ponga 0 para incluir todas."
+
+msgid "Open RePostFlow"
+msgstr "Abrir RePostFlow"
+
+msgid "Optional"
+msgstr "Opcional"
+
+msgid "Page Access Token"
+msgstr "Token de acceso de página"
+
+msgid "Page ID"
+msgstr "ID de página"
+
+msgid "Parse Mode"
+msgstr "Modo de análisis"
+
+msgid "Pause"
+msgstr "Pausar"
+
+msgid "Paused"
+msgstr "Pausado"
+
+msgid "Person URN or Organization URN"
+msgstr "URN de persona o URN de organización"
+
+msgid "Pin Description"
+msgstr "Descripción del pin"
+
+msgid "Pin Title"
+msgstr "Título del pin"
+
+msgid "Pin description (max 500 chars). Available variables listed below."
+msgstr "Descripción del pin (máx. 500 caracteres). Variables disponibles listadas a continuación."
+
+msgid "Pin title (max 100 chars). Available: {title}, {author}, {categories}"
+msgstr "Título del pin (máx. 100 caracteres). Disponibles: {title}, {author}, {categories}"
+
+msgid "Pinterest not configured"
+msgstr "Pinterest no está configurado"
+
+msgid "Pinterest requires an image. Please set a featured image for this post."
+msgstr "Pinterest requiere una imagen. Por favor, establezca una imagen destacada para esta publicación."
+
+msgid "Post author name"
+msgstr "Nombre del autor de la publicación"
+
+msgid "Post excerpt (max 30 words)"
+msgstr "Extracto de publicación (máx. 30 palabras)"
+
+msgid "Post Template"
+msgstr "Plantilla de publicación"
+
+msgid "Post title"
+msgstr "Título de publicación"
+
+msgid "Post Types"
+msgstr "Tipos de publicación"
+
+msgid "Post URL (with UTM if enabled)"
+msgstr "URL de publicación (con UTM si está habilitado)"
+
+msgid "Post URL (without UTM)"
+msgstr "URL de publicación (sin UTM)"
+
+msgid "Post Visibility"
+msgstr "Visibilidad de publicación"
+
+msgid "Post"
+msgstr "Publicación"
+
+msgid "Posts Per Run"
+msgstr "Publicaciones por ejecución"
+
+msgid "Public"
+msgstr "Público"
+
+msgid "Publication date"
+msgstr "Fecha de publicación"
+
+msgid "Published"
+msgstr "Publicado"
+
+msgid "PDS URL (optional)"
+msgstr "URL de PDS (opcional)"
+
+msgid "Queue is empty"
+msgstr "La cola está vacía"
+
+msgid "Queue"
+msgstr "Cola"
+
+msgid "Queued"
+msgstr "En cola"
+
+msgid "Quick Actions"
+msgstr "Acciones rápidas"
+
+msgid "RePostFlow"
+msgstr "RePostFlow"
+
+msgid "RePostFlow — Social Sharing"
+msgstr "RePostFlow — Compartir en redes sociales"
+
+msgid "RePostFlow connection test successful!"
+msgstr "¡Prueba de conexión de RePostFlow exitosa!"
+
+msgid "Recent Activity"
+msgstr "Actividad reciente"
+
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Same token used for Facebook (must have instagram_content_publish permission)."
+msgstr "Mismo token usado para Facebook (debe tener permiso instagram_content_publish)."
+
+msgid "Save Settings"
+msgstr "Guardar ajustes"
+
+msgid "Schedule"
+msgstr "Programar"
+
+msgid "Scheduled"
+msgstr "Programado"
+
+msgid "Select which post types to include in auto-sharing."
+msgstr "Seleccione qué tipos de publicación incluir en el compartido automático."
+
+msgid "Send as embedded message with image preview."
+msgstr "Enviar como mensaje incrustado con vista previa de imagen."
+
+msgid "Settings saved."
+msgstr "Ajustes guardados."
+
+msgid "Settings"
+msgstr "Ajustes"
+
+msgid "Shared posts will appear here. Enable auto-sharing or use \"Share Now\" to get started."
+msgstr "Las publicaciones compartidas aparecerán aquí. Habilite el compartido automático o use \"Compartir ahora\" para empezar."
+
+msgid "Shared successfully!"
+msgstr "¡Compartido exitosamente!"
+
+msgid "Share History"
+msgstr "Historial de compartidos"
+
+msgid "Share Now"
+msgstr "Compartir ahora"
+
+msgid "Sharing Frequency"
+msgstr "Frecuencia de compartido"
+
+msgid "Sharing Queue"
+msgstr "Cola de compartido"
+
+msgid "Sharing..."
+msgstr "Compartiendo..."
+
+msgid "Site name"
+msgstr "Nombre del sitio"
+
+msgid "Site URL"
+msgstr "URL del sitio"
+
+msgid "Skipped by filter"
+msgstr "Omitido por filtro"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Status:"
+msgstr "Estado:"
+
+msgid "Tags as #hashtags"
+msgstr "Etiquetas como #hashtags"
+
+msgid "Telegram not configured"
+msgstr "Telegram no está configurado"
+
+msgid "Test Connection"
+msgstr "Probar conexión"
+
+msgid "Testing connection..."
+msgstr "Probando conexión..."
+
+msgid "The board ID to pin to. Format: 1234567890123456789 or board slug name."
+msgstr "El ID de tablero donde fijar. Formato: 1234567890123456789 o nombre slug del tablero."
+
+msgid "This month"
+msgstr "Este mes"
+
+msgid "This week"
+msgstr "Esta semana"
+
+msgid "This Week"
+msgstr "Esta semana"
+
+msgid "Threads not configured"
+msgstr "Threads no está configurado"
+
+msgid "Toot Template"
+msgstr "Plantilla de toot"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Total Shares"
+msgstr "Compartidos totales"
+
+msgid "Twitter not configured"
+msgstr "Twitter no está configurado"
+
+msgid "Unauthorized"
+msgstr "No autorizado"
+
+msgid "Unknown Bluesky API error"
+msgstr "Error desconocido de API de Bluesky"
+
+msgid "Unknown Discord API error"
+msgstr "Error desconocido de API de Discord"
+
+msgid "Unknown Facebook API error"
+msgstr "Error desconocido de API de Facebook"
+
+msgid "Unknown LinkedIn API error"
+msgstr "Error desconocido de API de LinkedIn"
+
+msgid "Unknown Mastodon API error"
+msgstr "Error desconocido de API de Mastodon"
+
+msgid "Unknown network"
+msgstr "Red desconocida"
+
+msgid "Unknown Pinterest API error"
+msgstr "Error desconocido de API de Pinterest"
+
+msgid "Unknown Telegram API error"
+msgstr "Error desconocido de API de Telegram"
+
+msgid "Unknown Threads API error"
+msgstr "Error desconocido de API de Threads"
+
+msgid "Unknown Twitter API error"
+msgstr "Error desconocido de API de Twitter"
+
+msgid "Unlisted"
+msgstr "No listado"
+
+msgid "URL Access Token"
+msgstr "Token de acceso URL"
+
+msgid "Use Embed"
+msgstr "Usar incrustación"
+
+msgid "User ID (optional)"
+msgstr "ID de usuario (opcional)"
+
+msgid "UTM Parameters"
+msgstr "Parámetros UTM"
+
+msgid "utm_campaign:"
+msgstr "utm_campaign:"
+
+msgid "utm_medium:"
+msgstr "utm_medium:"
+
+msgid "utm_source:"
+msgstr "utm_source:"
+
+msgid "Variable"
+msgstr "Variable"
+
+msgid "View History"
+msgstr "Ver historial"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Webhook connection successful!"
+msgstr "¡Conexión de webhook exitosa!"
+
+msgid "Webhook URL is required"
+msgstr "Se requiere URL de webhook"
+
+msgid "Webhook URL"
+msgstr "URL de webhook"
+
+msgid "Who can see your posts."
+msgstr "Quién puede ver sus publicaciones."
+
+msgid "WordPress cron depends on site traffic. For reliable scheduling, set up a real cron job: %s"
+msgstr "El cron de WordPress depende del tráfico del sitio. Para programación confiable, configure un trabajo cron real: %s"
+
+msgid "WP-Cron Note"
+msgstr "Nota de WP-Cron"
+
+msgid "Your Bluesky handle (e.g., user.bsky.social) or email address."
+msgstr "Su handle de Bluesky (ej. usuario.bsky.social) o dirección de correo electrónico."
+
+msgid "Your Facebook Page ID. Find it in Page Settings → About."
+msgstr "Su ID de página de Facebook. Encuéntrelo en Configuración de página → Acerca de."
+
+msgid "Your Instagram Business/Creator Account ID (linked to Facebook Page)."
+msgstr "Su ID de cuenta de Instagram Business/Creator (vinculada a página de Facebook)."
+
+msgid "Your Mastodon instance URL (e.g., https://mastodon.social, https://fosstodon.org)"
+msgstr "La URL de su instancia de Mastodon (ej. https://mastodon.social, https://fosstodon.org)"
+
+msgid "Your Threads user ID. Leave empty to auto-detect."
+msgstr "Su ID de usuario de Threads. Déjelo vacío para autodetectar."
+
+msgctxt "Parse mode"
+msgid "HTML"
+msgstr "HTML"
+
+msgctxt "Parse mode"
+msgid "Markdown"
+msgstr "Markdown"
+
+msgctxt "Parse mode"
+msgid "MarkdownV2"
+msgstr "MarkdownV2"
+
+msgid "Processing"
+msgstr "Procesando"
+
+msgid "Skipped by filter"
+msgstr "Omitido por filtro"
+
+msgid "X (Twitter)"
+msgstr "X (Twitter)"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Telegram"
+msgstr "Telegram"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "Bluesky"
+msgstr "Bluesky"
+
+msgid "Discord"
+msgstr "Discord"
+
+msgid "Mastodon"
+msgstr "Mastodon"

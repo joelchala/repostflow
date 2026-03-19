@@ -53,9 +53,9 @@ class RPF_Telegram extends RPF_Network_Abstract {
 				'label'       => __( 'Parse Mode', 'repostflow' ),
 				'type'        => 'select',
 				'options'     => array(
-					'HTML'       => 'HTML',
-					'Markdown'   => 'Markdown',
-					'MarkdownV2' => 'MarkdownV2',
+					'HTML'       => __( 'HTML', 'repostflow' ),
+					'Markdown'   => __( 'Markdown', 'repostflow' ),
+					'MarkdownV2' => __( 'MarkdownV2', 'repostflow' ),
 				),
 				'default'     => 'HTML',
 				'description' => __( 'Message formatting mode.', 'repostflow' ),

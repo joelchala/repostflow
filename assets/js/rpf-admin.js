@@ -101,17 +101,18 @@
 					nonce: rpfAdmin.nonce
 				}, function (response) {
 					$btn.prop('disabled', false).html(
-						'<span class="dashicons dashicons-share"></span> Share Now'
+						'<span class="dashicons dashicons-share"></span> ' + rpfAdmin.strings.shareNow
 					);
 					$result.show();
 
 					if (response.success) {
 						var html = '<strong>✓ ' + rpfAdmin.strings.shared + '</strong><br>';
-						html += 'Post: "' + response.data.post_title + '"<br>';
+						html += rpfAdmin.strings.post + ': "' + response.data.post_title + '"<br>';
 
 						for (var net in response.data.results) {
 							var r = response.data.results[net];
-							html += net + ': ' + (r.success ? '✓' : '✗ ' + r.error) + '<br>';
+							var networkLabel = rpfAdmin.networkLabels[net] || net;
+							html += networkLabel + ': ' + (r.success ? '✓' : '✗ ' + r.error) + '<br>';
 						}
 
 						$result
@@ -126,7 +127,7 @@
 					}
 				}).fail(function () {
 					$btn.prop('disabled', false).html(
-						'<span class="dashicons dashicons-share"></span> Share Now'
+						'<span class="dashicons dashicons-share"></span> ' + rpfAdmin.strings.shareNow
 					);
 					$result
 						.show()

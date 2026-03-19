@@ -326,18 +326,18 @@ $active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : 'gen
 					</label>
 
 					<div class="rpf-utm-fields" style="margin-top:10px;">
-						<label style="display:block;margin-bottom:5px;">
-							<strong>utm_source:</strong>
-							<input type="text" name="rpf_utm_source" value="<?php echo esc_attr( RePostFlow::get_option( 'advanced.utm_source', 'repostflow' ) ); ?>" class="regular-text">
-						</label>
-						<label style="display:block;margin-bottom:5px;">
-							<strong>utm_medium:</strong>
-							<input type="text" name="rpf_utm_medium" value="<?php echo esc_attr( RePostFlow::get_option( 'advanced.utm_medium', 'social' ) ); ?>" class="regular-text">
-						</label>
-						<label style="display:block;margin-bottom:5px;">
-							<strong>utm_campaign:</strong>
-							<input type="text" name="rpf_utm_campaign" value="<?php echo esc_attr( RePostFlow::get_option( 'advanced.utm_campaign', '' ) ); ?>" class="regular-text" placeholder="<?php esc_attr_e( 'Optional', 'repostflow' ); ?>">
-						</label>
+					<label style="display:block;margin-bottom:5px;">
+						<strong><?php esc_html_e( 'utm_source:', 'repostflow' ); ?></strong>
+						<input type="text" name="rpf_utm_source" value="<?php echo esc_attr( RePostFlow::get_option( 'advanced.utm_source', 'repostflow' ) ); ?>" class="regular-text">
+					</label>
+					<label style="display:block;margin-bottom:5px;">
+						<strong><?php esc_html_e( 'utm_medium:', 'repostflow' ); ?></strong>
+						<input type="text" name="rpf_utm_medium" value="<?php echo esc_attr( RePostFlow::get_option( 'advanced.utm_medium', 'social' ) ); ?>" class="regular-text">
+					</label>
+					<label style="display:block;margin-bottom:5px;">
+						<strong><?php esc_html_e( 'utm_campaign:', 'repostflow' ); ?></strong>
+						<input type="text" name="rpf_utm_campaign" value="<?php echo esc_attr( RePostFlow::get_option( 'advanced.utm_campaign', '' ) ); ?>" class="regular-text" placeholder="<?php esc_attr_e( 'Optional', 'repostflow' ); ?>">
+					</label>
 					</div>
 				</td>
 			</tr>

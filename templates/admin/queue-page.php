@@ -44,12 +44,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ( $queue_items as $item ) : ?>
+					<?php
+					$network_labels = array(
+						'twitter'   => __( 'X (Twitter)', 'repostflow' ),
+						'facebook'  => __( 'Facebook', 'repostflow' ),
+						'instagram' => __( 'Instagram', 'repostflow' ),
+						'linkedin'  => __( 'LinkedIn', 'repostflow' ),
+						'telegram'  => __( 'Telegram', 'repostflow' ),
+						'pinterest' => __( 'Pinterest', 'repostflow' ),
+						'threads'   => __( 'Threads', 'repostflow' ),
+						'bluesky'   => __( 'Bluesky', 'repostflow' ),
+						'discord'   => __( 'Discord', 'repostflow' ),
+						'mastodon'  => __( 'Mastodon', 'repostflow' ),
+					);
+					foreach ( $queue_items as $item ) :
+						$network_label = isset( $network_labels[ $item->network ] ) ? $network_labels[ $item->network ] : ucfirst( $item->network );
+					?>
 					<tr id="queue-row-<?php echo esc_attr( $item->id ); ?>">
 						<td>
 							<strong><?php echo esc_html( get_the_title( $item->post_id ) ); ?></strong>
 						</td>
-						<td><?php echo esc_html( ucfirst( $item->network ) ); ?></td>
+						<td><?php echo esc_html( $network_label ); ?></td>
 						<td>
 							<span class="rpf-message-preview"><?php echo esc_html( wp_trim_words( $item->message, 15 ) ); ?></span>
 						</td>

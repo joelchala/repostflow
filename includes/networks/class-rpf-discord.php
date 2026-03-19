@@ -77,7 +77,7 @@ class RPF_Discord extends RPF_Network_Abstract {
 		$url = $webhook_url . '?wait=true';
 
 		$test_data = array(
-			'content' => 'RePostFlow connection test successful!',
+			'content' => __( 'RePostFlow connection test successful!', 'repostflow' ),
 		);
 
 		$response = $this->http_post_json( $url, $test_data );
