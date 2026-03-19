@@ -1,0 +1,411 @@
+/**
+ * RePostFlow Admin Styles
+ *
+ * @package RePostFlow
+ * @since   1.0.0
+ */
+
+/* === Page Layout === */
+.rpf-wrap {
+	max-width: 1200px;
+}
+
+.rpf-page-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 23px;
+	font-weight: 400;
+	margin: 0 0 15px;
+	padding: 9px 0 4px;
+}
+
+.rpf-page-title .dashicons {
+	font-size: 28px;
+	width: 28px;
+	height: 28px;
+}
+
+.rpf-version {
+	font-size: 12px;
+	color: #999;
+	font-weight: normal;
+	margin-left: 5px;
+	background: #f0f0f1;
+	padding: 2px 8px;
+	border-radius: 3px;
+}
+
+/* === Status Banner === */
+.rpf-status-banner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 20px;
+	border-radius: 6px;
+	margin-bottom: 20px;
+	border-left: 4px solid;
+}
+
+.rpf-status-active {
+	background: #f0f9f0;
+	border-color: #46b450;
+}
+
+.rpf-status-paused {
+	background: #fff8f0;
+	border-color: #f0b849;
+}
+
+.rpf-status-left {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.rpf-status-dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.rpf-status-active .rpf-status-dot {
+	background: #46b450;
+	box-shadow: 0 0 6px rgba(70, 180, 80, 0.4);
+	animation: rpf-pulse 2s infinite;
+}
+
+.rpf-status-paused .rpf-status-dot {
+	background: #f0b849;
+}
+
+@keyframes rpf-pulse {
+	0% { box-shadow: 0 0 0 0 rgba(70, 180, 80, 0.4); }
+	70% { box-shadow: 0 0 0 8px rgba(70, 180, 80, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(70, 180, 80, 0); }
+}
+
+.rpf-status-text {
+	font-size: 15px;
+	font-weight: 600;
+}
+
+/* === Cards Grid === */
+.rpf-cards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 15px;
+	margin-bottom: 25px;
+}
+
+.rpf-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	transition: box-shadow 0.2s;
+}
+
+.rpf-card:hover {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.rpf-card-warning {
+	border-color: #dc3232;
+	background: #fff5f5;
+}
+
+.rpf-card-icon .dashicons {
+	font-size: 32px;
+	width: 32px;
+	height: 32px;
+}
+
+.rpf-card-number {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.rpf-card-label {
+	font-size: 13px;
+	color: #666;
+}
+
+/* === Sections === */
+.rpf-section {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.rpf-section h2 {
+	margin: 0 0 15px;
+	padding: 0;
+	font-size: 16px;
+}
+
+/* === Quick Actions === */
+.rpf-quick-actions {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.rpf-quick-actions .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.rpf-quick-actions .button .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+.rpf-share-result {
+	margin-top: 12px;
+	padding: 10px 15px;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+.rpf-share-result.rpf-result-success {
+	background: #f0f9f0;
+	border: 1px solid #46b450;
+	color: #1e4620;
+}
+
+.rpf-share-result.rpf-result-error {
+	background: #fff5f5;
+	border: 1px solid #dc3232;
+	color: #8b1a1a;
+}
+
+/* === Networks Grid === */
+.rpf-networks-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 12px;
+}
+
+.rpf-network-card {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 15px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+	transition: border-color 0.2s;
+}
+
+.rpf-network-active {
+	border-color: #46b450;
+	background: #f8fdf8;
+}
+
+.rpf-network-inactive {
+	opacity: 0.7;
+}
+
+.rpf-network-icon svg {
+	width: 24px;
+	height: 24px;
+}
+
+.rpf-network-info {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.rpf-network-status {
+	font-size: 12px;
+}
+
+/* === Network Settings Panels === */
+.rpf-networks-settings {
+	margin-top: 15px;
+}
+
+.rpf-network-panel {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	margin-bottom: 10px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.rpf-network-panel-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 15px 20px;
+	cursor: pointer;
+	user-select: none;
+	transition: background 0.2s;
+}
+
+.rpf-network-panel-header:hover {
+	background: #f9f9f9;
+}
+
+.rpf-network-panel-icon svg {
+	width: 24px;
+	height: 24px;
+}
+
+.rpf-network-panel-title {
+	font-weight: 600;
+	font-size: 14px;
+	flex: 1;
+}
+
+.rpf-network-panel-status {
+	font-size: 13px;
+}
+
+.rpf-network-panel-arrow {
+	transition: transform 0.3s;
+}
+
+.rpf-network-panel-header.active .rpf-network-panel-arrow {
+	transform: rotate(180deg);
+}
+
+.rpf-network-panel-body {
+	border-top: 1px solid #dcdcde;
+	padding: 0 10px;
+}
+
+.rpf-network-panel-body .form-table th {
+	width: 180px;
+}
+
+/* === Test Connection === */
+.rpf-test-result {
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 13px;
+}
+
+.rpf-test-success {
+	color: #46b450;
+}
+
+.rpf-test-error {
+	color: #dc3232;
+}
+
+.rpf-test-loading {
+	color: #999;
+}
+
+/* === Badges === */
+.rpf-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+.rpf-badge-success {
+	background: #d4edda;
+	color: #155724;
+}
+
+.rpf-badge-error {
+	background: #f8d7da;
+	color: #721c24;
+}
+
+.rpf-badge-pending {
+	background: #fff3cd;
+	color: #856404;
+}
+
+/* === Tables === */
+.rpf-table {
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.rpf-table th {
+	font-weight: 600;
+}
+
+.rpf-message-preview {
+	color: #666;
+	font-size: 13px;
+	max-width: 250px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* === Empty States === */
+.rpf-empty-state {
+	text-align: center;
+	padding: 60px 20px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+}
+
+.rpf-empty-state h2 {
+	margin: 15px 0 5px;
+	color: #333;
+}
+
+.rpf-empty-state p {
+	color: #666;
+	font-size: 14px;
+}
+
+/* === Form Table === */
+.rpf-form-table th {
+	font-weight: 600;
+}
+
+/* === Tabs === */
+.rpf-tabs {
+	margin-bottom: 20px;
+}
+
+/* === Responsive === */
+@media (max-width: 782px) {
+	.rpf-cards-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.rpf-networks-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.rpf-status-banner {
+		flex-direction: column;
+		gap: 10px;
+		text-align: center;
+	}
+
+	.rpf-network-panel-body .form-table th {
+		width: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.rpf-cards-grid {
+		grid-template-columns: 1fr;
+	}
+}
