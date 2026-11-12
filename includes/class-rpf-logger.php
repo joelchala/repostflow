@@ -114,43 +114,44 @@ class RPF_Logger {
 			'order'    => 'DESC',
 		);
 
-		$args   = wp_parse_args( $args, $defaults );
-		$table  = $this->get_table();
-		$where  = array( '1=1' );
-		$values = array();
+		$args     = wp_parse_args( $args, $defaults );
+		$table    = $this->get_table();
+		$status   = (string) $args['status'];
+		$network  = (string) $args['network'];
+		$per_page = max( 1, absint( $args['per_page'] ) );
+		$offset   = ( max( 1, absint( $args['page'] ) ) - 1 ) * $per_page;
+		// Column names come from a fixed list, never from user input.
+		$column = in_array( $args['orderby'], array( 'created_at', 'scheduled_at', 'shared_at' ), true ) ? $args['orderby'] : 'created_at';
 
-		if ( ! empty( $args['status'] ) ) {
-			$where[]  = 'status = %s';
-			$values[] = $args['status'];
-		}
-
-		if ( ! empty( $args['network'] ) ) {
-			$where[]  = 'network = %s';
-			$values[] = $args['network'];
-		}
-
-		// $where_clause is built only from literal fragments and $orderby is sanitized; all values use placeholders.
-		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
-		$where_clause = implode( ' AND ', $where );
-		$orderby      = sanitize_sql_orderby( $args['orderby'] . ' ' . $args['order'] );
-		$offset       = ( $args['page'] - 1 ) * $args['per_page'];
-
-		if ( ! empty( $values ) ) {
-			$query = $wpdb->prepare(
-				"SELECT * FROM %i WHERE $where_clause ORDER BY $orderby LIMIT %d OFFSET %d",
-				array_merge( array( $table ), $values, array( $args['per_page'], $offset ) )
+		if ( 'ASC' === strtoupper( (string) $args['order'] ) ) {
+			return $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT * FROM %i WHERE ( %s = '' OR status = %s ) AND ( %s = '' OR network = %s ) ORDER BY %i ASC LIMIT %d OFFSET %d",
+					$table,
+					$status,
+					$status,
+					$network,
+					$network,
+					$column,
+					$per_page,
+					$offset
+				)
 			);
-		} else {
-			$query = $wpdb->prepare(
-				"SELECT * FROM %i WHERE 1=1 ORDER BY $orderby LIMIT %d OFFSET %d",
+		}
+
+		return $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT * FROM %i WHERE ( %s = '' OR status = %s ) AND ( %s = '' OR network = %s ) ORDER BY %i DESC LIMIT %d OFFSET %d",
 				$table,
-				$args['per_page'],
+				$status,
+				$status,
+				$network,
+				$network,
+				$column,
+				$per_page,
 				$offset
-			);
-		}
-
-		return $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- prepared above.
-		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
+			)
+		);
 	}
 
 	/**
@@ -162,32 +163,20 @@ class RPF_Logger {
 	public function get_total_count( $args = array() ) {
 		global $wpdb;
 
-		$table  = $this->get_table();
-		$where  = array( '1=1' );
-		$values = array();
+		$table   = $this->get_table();
+		$status  = isset( $args['status'] ) ? (string) $args['status'] : '';
+		$network = isset( $args['network'] ) ? (string) $args['network'] : '';
 
-		if ( ! empty( $args['status'] ) ) {
-			$where[]  = 'status = %s';
-			$values[] = $args['status'];
-		}
-
-		if ( ! empty( $args['network'] ) ) {
-			$where[]  = 'network = %s';
-			$values[] = $args['network'];
-		}
-
-		// $where_clause holds literal fragments only; values use placeholders.
-		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
-		$where_clause = implode( ' AND ', $where );
-
-		if ( ! empty( $values ) ) {
-			return (int) $wpdb->get_var(
-				$wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE $where_clause", array_merge( array( $table ), $values ) )
-			);
-		}
-
-		return (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', $table ) );
-		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
+		return (int) $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT COUNT(*) FROM %i WHERE ( %s = '' OR status = %s ) AND ( %s = '' OR network = %s )",
+				$table,
+				$status,
+				$status,
+				$network,
+				$network
+			)
+		);
 	}
 
 	/**

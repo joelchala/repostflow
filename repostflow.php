@@ -27,14 +27,6 @@ define( 'RPF_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RPF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'RPF_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
-/**
- * Load plugin textdomain for translations.
- */
-function rpf_load_textdomain() {
-	load_plugin_textdomain( 'repostflow', false, dirname( RPF_PLUGIN_BASENAME ) . '/languages' );
-}
-add_action( 'plugins_loaded', 'rpf_load_textdomain' );
-
 // Include core files.
 require_once RPF_PLUGIN_DIR . 'includes/class-rpf-encryption.php';
 require_once RPF_PLUGIN_DIR . 'includes/class-rpf-logger.php';
