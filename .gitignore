@@ -16,3 +16,6 @@ Thumbs.db
 
 # Development
 *.map
+# Archivos de desarrollo (no van en el proyecto)
+CLAUDE.md
+GLM-5.md
