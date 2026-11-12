@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $settings = get_option( 'rpf_settings', array() );
 $post_types = get_post_types( array( 'public' => true ), 'objects' );
 $categories = get_categories( array( 'hide_empty' => false ) );
-$active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : 'general';
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- tab selection only.
+$active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'general';
 ?>
 <div class="wrap rpf-wrap">
 	<h1 class="rpf-page-title">

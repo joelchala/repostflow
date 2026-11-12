@@ -1,144 +1,160 @@
-=== RePostFlow - Republicado Automático en Redes Sociales ===
-Contributors: joelchala
-Tags: social media, auto share, twitter, facebook, instagram, linkedin, telegram, pinterest, threads, bluesky, discord, mastodon, repost, evergreen, redes sociales, automatico
-Requires at least: 6.0
-Tested up to: 6.7
+=== RePostFlow ===
+Contributors: chalatico07
+Tags: social media, auto share, repost, evergreen, scheduler
+Requires at least: 6.2
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Republica automáticamente tu contenido evergreen de WordPress en múltiples redes sociales con un horario inteligente.
+Automatically reshare your evergreen WordPress content to 10 social networks on a smart schedule.
 
-== Descripción ==
+== Description ==
 
-**RePostFlow** selecciona y republica automáticamente tu contenido existente de WordPress en múltiples redes sociales según un horario personalizable. Dale nueva vida a tu contenido antiguo y genera tráfico constante desde redes sociales — ¡en piloto automático!
+**RePostFlow** automatically picks your existing WordPress content and reshares it to several social networks on a customizable schedule. Give new life to your older posts and keep a steady flow of traffic from social media, on autopilot.
 
-Este plugin es ideal para sitios con contenido evergreen (juegos, tutoriales, recetas, artículos atemporales) que quieres mantener activos en redes sociales sin esfuerzo manual.
+It is ideal for sites with evergreen content (games, tutorials, recipes, timeless articles) that you want to keep visible on social media without manual effort.
 
-= Características Principales =
+= Main features =
 
-* **Selección Inteligente de Posts** — Elige posts publicados aleatoriamente con período de enfriamiento para evitar duplicados
-* **10 Redes Sociales** — X/Twitter, Facebook, Instagram, LinkedIn, Telegram, Pinterest, Threads, Bluesky, Discord, Mastodon
-* **Horarios Personalizables** — Desde cada2 horas hasta una vez por semana
-* **Motor de Plantillas** — Mensajes personalizados por red con variables como {title}, {url}, {hashtags}
-* **Soporte de Imágenes** — Adjunta automáticamente la imagen destacada del post
-* **Seguimiento UTM** — Parámetros UTM opcionales para analíticas
-* **Sistema de Cola** — Visualiza y administra los próximos compartidos
-* **Historial de Compartidos** — Registro completo con estado de cada publicación
-* **Widget en Dashboard** — Vista rápida desde el panel de WordPress
-* **Extensible** — Hooks y filtros para desarrolladores
-* **Seguro** — Credenciales API encriptadas, verificación nonce en todas las acciones
+* **Smart post selection** - Picks published posts at random with a cooldown period to avoid duplicates
+* **10 social networks** - X/Twitter, Facebook, Instagram, LinkedIn, Telegram, Pinterest, Threads, Bluesky, Discord, Mastodon
+* **Customizable schedules** - From every 2 hours to once a week
+* **Template engine** - Per-network messages with variables such as {title}, {url}, {hashtags}
+* **Image support** - Automatically attaches the post's featured image
+* **UTM tracking** - Optional UTM parameters for analytics
+* **Queue system** - View and manage upcoming shares
+* **Share history** - Full log with the status of every share
+* **Dashboard widget** - Quick overview from the WordPress dashboard
+* **Extensible** - Hooks and filters for developers
+* **Secure** - API credentials are encrypted, nonce checks on all actions
 
-= Redes Sociales Soportadas =
+= Supported networks =
 
-* **X (Twitter)** — API v2 con OAuth 1.0a, soporta texto + imagen
-* **Facebook** — Graph API, publica en Páginas con enlace o foto
-* **Instagram** — Cuentas de negocio vía Graph API (imagen requerida)
-* **LinkedIn** — Perfiles personales y páginas de empresa
-* **Telegram** — Bot API para canales y grupos, soporta formato HTML
-* **Pinterest** — Pinea imágenes en tableros (imagen requerida)
-* **Threads** — Nueva red social de Meta vía Graph API
-* **Bluesky** — Red del protocolo AT con soporte de texto e imagen
-* **Discord** — Integración vía Webhook para canales (configuración más sencilla)
-* **Mastodon** — Red social federada, soporta cualquier instancia
+* **X (Twitter)** - API v2 with OAuth 1.0a, text and image
+* **Facebook** - Graph API, posts to Pages with a link or photo
+* **Instagram** - Business accounts through the Graph API (image required)
+* **LinkedIn** - Personal profiles and company pages
+* **Telegram** - Bot API for channels and groups, HTML formatting
+* **Pinterest** - Pins images to boards (image required)
+* **Threads** - Meta's Threads through the Graph API
+* **Bluesky** - AT Protocol network with text and image support
+* **Discord** - Channel integration through webhooks (simplest setup)
+* **Mastodon** - Federated network, works with any instance
 
-= Cómo Funciona =
+= How it works =
 
-1. Conecta tus cuentas de redes sociales en Ajustes → Redes
-2. Configura tu horario de publicación y reglas de selección de posts
-3. Personaliza las plantillas de mensaje para cada red
-4. ¡Habilita el auto-compartido y RePostFlow hace el resto!
+1. Connect your social accounts under Settings → Networks
+2. Set your posting schedule and post selection rules
+3. Customize the message template for each network
+4. Enable auto-sharing and RePostFlow does the rest
 
 = Extensible =
 
-Los desarrolladores pueden agregar redes personalizadas usando la acción `rpf_register_networks` y modificar el comportamiento con filtros como `rpf_post_query_args`, `rpf_template_variables`, y `rpf_should_share_post`.
+Developers can add custom networks with the `rpf_register_networks` action and change behavior with filters such as `rpf_post_query_args`, `rpf_template_variables` and `rpf_should_share_post`.
 
-= Casos de Uso =
+= Use cases =
 
-* **Sitios de juegos** — Republicar juegos automáticamente cada día
-* **Blogs de tutoriales** — Mantener contenido técnico siempre visible
-* **Sitios de recetas** — Compartir recetas antiguas periódicamente
-* **Portales de noticias** — Redirigir tráfico a archivos importantes
-* **E-commerce** — Promocionar productos evergreen
+* **Gaming sites** - Reshare games automatically every day
+* **Tutorial blogs** - Keep technical content visible
+* **Recipe sites** - Periodically share older recipes
+* **News portals** - Drive traffic to important archives
+* **E-commerce** - Promote evergreen products
 
-== Instalación ==
+= External services =
 
-1. Sube la carpeta `repostflow` a `/wp-content/plugins/`
-2. Activa el plugin desde el menú 'Plugins' en WordPress
-3. Ve a **RePostFlow → Ajustes** para configurar tus redes
-4. ¡Habilita el auto-compartido y disfruta de presencia automática en redes sociales!
+RePostFlow connects to the social networks you enable, and only those. Nothing is sent until you add your credentials for a network and enable it. Each request is made when a scheduled share runs, or when you press "Test connection" in the settings. In every case the plugin sends the credentials you entered (to authenticate) and the content of the post being shared: its text built from your template (title, excerpt, URL, hashtags, author), the permalink (with optional UTM parameters) and the featured image when the network accepts one. No visitor data is sent.
 
-== Preguntas Frecuentes ==
+* **X (Twitter)** - api.twitter.com and upload.twitter.com. [Terms](https://x.com/en/tos), [Privacy](https://x.com/en/privacy)
+* **Facebook and Instagram** - graph.facebook.com. [Terms](https://www.facebook.com/terms.php), [Privacy](https://www.facebook.com/privacy/policy/)
+* **Threads** - graph.threads.net. [Terms](https://help.instagram.com/769983657850450), [Privacy](https://help.instagram.com/515230437301944)
+* **LinkedIn** - api.linkedin.com. [Terms](https://www.linkedin.com/legal/user-agreement), [Privacy](https://www.linkedin.com/legal/privacy-policy)
+* **Telegram** - api.telegram.org. [Terms](https://telegram.org/tos), [Privacy](https://telegram.org/privacy)
+* **Pinterest** - api.pinterest.com. [Terms](https://policy.pinterest.com/en/terms-of-service), [Privacy](https://policy.pinterest.com/en/privacy-policy)
+* **Bluesky** - bsky.social, or the PDS server you configure. [Terms](https://bsky.social/about/support/tos), [Privacy](https://bsky.social/about/support/privacy-policy)
+* **Discord** - discord.com (webhook URL you provide). [Terms](https://discord.com/terms), [Privacy](https://discord.com/privacy)
+* **Mastodon** - the instance URL you configure (for example mastodon.social). Terms and privacy are set by each instance.
 
-= ¿Funciona con tipos de posts personalizados? =
+== Installation ==
 
-¡Sí! Puedes seleccionar cualquier tipo de post público en la pestaña de Ajustes Generales.
+1. Upload the `repostflow` folder to `/wp-content/plugins/`
+2. Activate the plugin from the "Plugins" menu in WordPress
+3. Go to **RePostFlow → Settings** to configure your networks
+4. Enable auto-sharing and enjoy an automatic social media presence
 
-= ¿Cómo funciona la selección inteligente? =
+== Frequently Asked Questions ==
 
-RePostFlow elige posts publicados aleatoriamente respetando un período de enfriamiento. No volverá a compartir el mismo post dentro del período configurado (por defecto: 7 días). También puedes establecer una antigüedad mínima del post y incluir/excluir categorías específicas.
+= Does it work with custom post types? =
 
-= ¿Necesito claves API para cada red? =
+Yes. You can select any public post type on the General settings tab.
 
-Sí. Cada red social requiere credenciales API. RePostFlow proporciona instrucciones en el panel de ajustes para cada red. Las credenciales se encriptan antes de guardarse.
+= How does smart selection work? =
 
-= ¿Compartirá el mismo post dos veces? =
+RePostFlow picks published posts at random while respecting a cooldown period. It will not share the same post again within the configured period (default: 7 days). You can also set a minimum post age and include or exclude specific categories.
 
-No dentro del período de enfriamiento. El plugin rastrea todos los compartidos en un registro y excluye los posts compartidos recientemente de la selección.
+= Do I need API keys for each network? =
 
-= ¿Funciona con WordPress cron? =
+Yes. Each social network requires API credentials. RePostFlow gives instructions in the settings panel for each network. Credentials are encrypted before they are stored.
 
-Sí, utiliza WP-Cron. Para máxima confiabilidad, recomendamos configurar un cron job real en el servidor que ejecute `wp-cron.php` cada 15 minutos.
+= Will it share the same post twice? =
 
-= ¿Qué pasa si una publicación falla? =
+Not within the cooldown period. The plugin tracks every share in a log and excludes recently shared posts from selection.
 
-El error se registra en el historial con el mensaje de error. Puedes ver los detalles en RePostFlow → Historial.
+= Does it work with WordPress cron? =
 
-= ¿Puedo usar mi propia plantilla de mensaje? =
+Yes, it uses WP-Cron. For best reliability we recommend setting up a real server cron job that runs `wp-cron.php` every 15 minutes.
 
-¡Sí! Cada red tiene su propia plantilla que puedes personalizar con variables como `{title}`, `{url}`, `{excerpt}`, `{hashtags}`, `{author}`, etc.
+= What happens if a share fails? =
 
-== Capturas de Pantalla ==
+The error is recorded in the history with its message. You can see the details under RePostFlow → History.
 
-1. Panel principal con estadísticas, redes conectadas y actividad reciente
-2. Página de ajustes con paneles de configuración de redes
-3. Historial de compartidos con filtros y paginación
-4. Página de gestión de cola
+= Can I use my own message template? =
 
-== Registro de Cambios ==
+Yes. Each network has its own template that you can customize with variables such as `{title}`, `{url}`, `{excerpt}`, `{hashtags}`, `{author}`, etc.
 
-= 1.1.0 =
-* NUEVO: Soporte para Pinterest (requiere imagen, API v5)
-* NUEVO: Soporte para Threads (red social de Meta)
-* NUEVO: Soporte para Bluesky (red del protocolo AT)
-* NUEVO: Soporte para Discord Webhook (configuración más sencilla)
-* NUEVO: Soporte para Mastodon (red federada, cualquier instancia)
-* CORRECCIÓN: Nombre de clase LinkedIn corregido
-* CORRECCIÓN: Preparación de queries SQL para seguridad
-* CORRECCIÓN: Validación de Board ID en Pinterest
-* MEJORA: Límites de caracteres para todas las redes
-* MEJORA: Plantillas por defecto para todas las redes
-* MEJORA: Validación de credenciales mejorada
+== Screenshots ==
 
-= 1.0.0 =
-* Lanzamiento inicial
-* Soporte para X/Twitter, Facebook, Instagram, LinkedIn y Telegram
-* Selección inteligente de posts con enfriamiento y filtros de categoría
-* Plantillas de mensaje personalizables por red
-* Sistema de cola e historial de compartidos
-* Widget en dashboard
-* Soporte para seguimiento UTM
-* Almacenamiento encriptado de credenciales
+1. Main dashboard with statistics, connected networks and recent activity
+2. Settings page with network configuration panels
+3. Share history with filters and pagination
+4. Queue management page
 
-== Nota de Actualización ==
+== Changelog ==
 
 = 1.1.0 =
-¡Actualización importante con 5 nuevas redes sociales! Pinterest, Threads, Bluesky, Discord y Mastodon ahora están soportados. Por favor vuelve a guardar los ajustes de tus redes después de actualizar.
+* NEW: Pinterest support (image required, API v5)
+* NEW: Threads support
+* NEW: Bluesky support (AT Protocol)
+* NEW: Discord webhook support (simplest setup)
+* NEW: Mastodon support (federated, any instance)
+* FIX: Corrected the LinkedIn class name
+* FIX: SQL queries are now prepared, including table names
+* FIX: Board ID validation for Pinterest
+* FIX: Request input is unslashed and sanitized
+* IMPROVEMENT: Character limits for all networks
+* IMPROVEMENT: Default templates for all networks
+* IMPROVEMENT: Better credential validation
+* Requires WordPress 6.2 or later
 
 = 1.0.0 =
-Primera versión de RePostFlow. ¡Conecta tus cuentas sociales y comienza a compartir automáticamente!
+* Initial release
+* Support for X/Twitter, Facebook, Instagram, LinkedIn and Telegram
+* Smart post selection with cooldown and category filters
+* Customizable message templates per network
+* Queue system and share history
+* Dashboard widget
+* UTM tracking support
+* Encrypted credential storage
 
-== Soporte ==
+== Upgrade Notice ==
 
-Para reportar bugs o solicitar funciones, visita: https://github.com/joelchala/repostflow/issues
+= 1.1.0 =
+Major update with 5 new social networks: Pinterest, Threads, Bluesky, Discord and Mastodon. Please re-save your network settings after updating. Requires WordPress 6.2 or later.
+
+= 1.0.0 =
+First release of RePostFlow. Connect your social accounts and start sharing automatically.
+
+== Support ==
+
+To report bugs or request features, visit: https://github.com/joelchala/repostflow/issues

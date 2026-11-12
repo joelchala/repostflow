@@ -48,7 +48,7 @@ class RPF_Ajax_Handler {
 			wp_send_json_error( __( 'Unauthorized', 'repostflow' ) );
 		}
 
-		$network_slug = isset( $_POST['network'] ) ? sanitize_text_field( $_POST['network'] ) : '';
+		$network_slug = isset( $_POST['network'] ) ? sanitize_text_field( wp_unslash( $_POST['network'] ) ) : '';
 		$network      = $this->plugin->networks->get_by_slug( $network_slug );
 
 		if ( ! $network ) {

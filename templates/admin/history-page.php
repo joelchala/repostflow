@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<select name="network">
 				<option value=""><?php esc_html_e( 'All Networks', 'repostflow' ); ?></option>
 				<?php foreach ( $networks as $slug => $net ) : ?>
-					<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( isset( $_GET['network'] ) ? $_GET['network'] : '', $slug ); ?>>
+					<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( isset( $_GET['network'] ) ? sanitize_text_field( wp_unslash( $_GET['network'] ) ) : '', $slug ); ?>>
 						<?php echo esc_html( $net->get_label() ); ?>
 					</option>
 				<?php endforeach; ?>
@@ -31,9 +31,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<select name="status">
 				<option value=""><?php esc_html_e( 'All Statuses', 'repostflow' ); ?></option>
-				<option value="published" <?php selected( isset( $_GET['status'] ) ? $_GET['status'] : '', 'published' ); ?>><?php esc_html_e( 'Published', 'repostflow' ); ?></option>
-				<option value="failed" <?php selected( isset( $_GET['status'] ) ? $_GET['status'] : '', 'failed' ); ?>><?php esc_html_e( 'Failed', 'repostflow' ); ?></option>
-				<option value="queued" <?php selected( isset( $_GET['status'] ) ? $_GET['status'] : '', 'queued' ); ?>><?php esc_html_e( 'Queued', 'repostflow' ); ?></option>
+				<option value="published" <?php selected( isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '', 'published' ); ?>><?php esc_html_e( 'Published', 'repostflow' ); ?></option>
+				<option value="failed" <?php selected( isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '', 'failed' ); ?>><?php esc_html_e( 'Failed', 'repostflow' ); ?></option>
+				<option value="queued" <?php selected( isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '', 'queued' ); ?>><?php esc_html_e( 'Queued', 'repostflow' ); ?></option>
 			</select>
 
 			<input type="submit" class="button" value="<?php esc_attr_e( 'Filter', 'repostflow' ); ?>">

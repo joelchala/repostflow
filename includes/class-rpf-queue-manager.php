@@ -64,7 +64,8 @@ class RPF_Queue_Manager {
 
 		return $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM $table WHERE status = 'queued' AND (scheduled_at IS NULL OR scheduled_at <= %s) ORDER BY created_at ASC LIMIT 1",
+				"SELECT * FROM %i WHERE status = 'queued' AND (scheduled_at IS NULL OR scheduled_at <= %s) ORDER BY created_at ASC LIMIT 1",
+				$table,
 				current_time( 'mysql' )
 			)
 		);
@@ -137,7 +138,8 @@ class RPF_Queue_Manager {
 		$table = $this->logger->get_table();
 		return $wpdb->query(
 			$wpdb->prepare(
-				"DELETE FROM `$table` WHERE status = %s",
+				"DELETE FROM %i WHERE status = %s",
+				$table,
 				'queued'
 			)
 		);

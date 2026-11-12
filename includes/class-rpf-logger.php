@@ -131,19 +131,23 @@ class RPF_Logger {
 		$offset       = ( $args['page'] - 1 ) * $args['per_page'];
 
 		if ( ! empty( $values ) ) {
+			// $where_clause is built from literal fragments and $orderby is sanitized; values are placeholders.
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 			$query = $wpdb->prepare(
-				"SELECT * FROM $table WHERE $where_clause ORDER BY $orderby LIMIT %d OFFSET %d",
-				array_merge( $values, array( $args['per_page'], $offset ) )
+				"SELECT * FROM %i WHERE $where_clause ORDER BY $orderby LIMIT %d OFFSET %d",
+				array_merge( array( $table ), $values, array( $args['per_page'], $offset ) )
 			);
 		} else {
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $orderby is sanitized with sanitize_sql_orderby().
 			$query = $wpdb->prepare(
-				"SELECT * FROM $table WHERE 1=1 ORDER BY $orderby LIMIT %d OFFSET %d",
+				"SELECT * FROM %i WHERE 1=1 ORDER BY $orderby LIMIT %d OFFSET %d",
+				$table,
 				$args['per_page'],
 				$offset
 			);
 		}
 
-		return $wpdb->get_results( $query );
+		return $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.NotPrepared -- prepared above.
 	}
 
 	/**
@@ -172,12 +176,13 @@ class RPF_Logger {
 		$where_clause = implode( ' AND ', $where );
 
 		if ( ! empty( $values ) ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery -- $where_clause holds literal fragments only.
 			return (int) $wpdb->get_var(
-				$wpdb->prepare( "SELECT COUNT(*) FROM $table WHERE $where_clause", $values )
+				$wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE $where_clause", array_merge( array( $table ), $values ) )
 			);
 		}
 
-		return (int) $wpdb->get_var( "SELECT COUNT(*) FROM `$table`" );
+		return (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', $table ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
 	}
 
 	/**
@@ -195,7 +200,8 @@ class RPF_Logger {
 		if ( ! empty( $network ) ) {
 			return $wpdb->get_col(
 				$wpdb->prepare(
-					"SELECT DISTINCT post_id FROM $table WHERE shared_at > DATE_SUB(NOW(), INTERVAL %d DAY) AND status = 'published' AND network = %s",
+					"SELECT DISTINCT post_id FROM %i WHERE shared_at > DATE_SUB(NOW(), INTERVAL %d DAY) AND status = 'published' AND network = %s",
+					$table,
 					$days,
 					$network
 				)
@@ -204,7 +210,8 @@ class RPF_Logger {
 
 		return $wpdb->get_col(
 			$wpdb->prepare(
-				"SELECT DISTINCT post_id FROM $table WHERE shared_at > DATE_SUB(NOW(), INTERVAL %d DAY) AND status = 'published'",
+				"SELECT DISTINCT post_id FROM %i WHERE shared_at > DATE_SUB(NOW(), INTERVAL %d DAY) AND status = 'published'",
+				$table,
 				$days
 			)
 		);
@@ -219,11 +226,11 @@ class RPF_Logger {
 		global $wpdb;
 		$table = $this->get_table();
 
-		$total     = (int) $wpdb->get_var( "SELECT COUNT(*) FROM $table WHERE status = 'published'" );
-		$this_week = (int) $wpdb->get_var( "SELECT COUNT(*) FROM $table WHERE status = 'published' AND shared_at > DATE_SUB(NOW(), INTERVAL 7 DAY)" );
-		$this_month = (int) $wpdb->get_var( "SELECT COUNT(*) FROM $table WHERE status = 'published' AND shared_at > DATE_SUB(NOW(), INTERVAL 30 DAY)" );
-		$failed    = (int) $wpdb->get_var( "SELECT COUNT(*) FROM $table WHERE status = 'failed' AND created_at > DATE_SUB(NOW(), INTERVAL 7 DAY)" );
-		$queued    = (int) $wpdb->get_var( "SELECT COUNT(*) FROM $table WHERE status = 'queued'" );
+		$total     = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status = 'published'", $table ) );
+		$this_week = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status = 'published' AND shared_at > DATE_SUB(NOW(), INTERVAL 7 DAY)", $table ) );
+		$this_month = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status = 'published' AND shared_at > DATE_SUB(NOW(), INTERVAL 30 DAY)", $table ) );
+		$failed    = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status = 'failed' AND created_at > DATE_SUB(NOW(), INTERVAL 7 DAY)", $table ) );
+		$queued    = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status = 'queued'", $table ) );
 
 		return array(
 			'total_published' => $total,
@@ -246,7 +253,8 @@ class RPF_Logger {
 
 		return $wpdb->query(
 			$wpdb->prepare(
-				"DELETE FROM $table WHERE created_at < DATE_SUB(NOW(), INTERVAL %d DAY)",
+				"DELETE FROM %i WHERE created_at < DATE_SUB(NOW(), INTERVAL %d DAY)",
+				$table,
 				$days
 			)
 		);
