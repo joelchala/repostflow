@@ -18,7 +18,7 @@ delete_option( 'rpf_version' );
 // Remove custom table.
 global $wpdb;
 $table_name = $wpdb->prefix . 'rpf_share_log';
-$wpdb->query( "DROP TABLE IF EXISTS $table_name" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+$wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $table_name ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.DirectDatabaseQuery.SchemaChange
 
 // Clear scheduled hooks.
 wp_clear_scheduled_hook( 'rpf_process_queue' );

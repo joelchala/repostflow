@@ -167,7 +167,7 @@ class RPF_Mastodon extends RPF_Network_Abstract {
 			return null;
 		}
 
-		$extension = pathinfo( parse_url( $image_url, PHP_URL_PATH ), PATHINFO_EXTENSION );
+		$extension = pathinfo( wp_parse_url( $image_url, PHP_URL_PATH ), PATHINFO_EXTENSION );
 		if ( empty( $extension ) ) {
 			$extension = 'jpg';
 		}

@@ -17,13 +17,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<!-- Filters -->
 	<div class="rpf-filters" style="margin-bottom:15px;">
+		<?php
+		// Read-only list filters; no state is changed, so no nonce is needed.
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
+		$rpf_filter_network = $rpf_filter_network;
+		$rpf_filter_status  = $rpf_filter_status;
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
+		?>
 		<form method="get" style="display:inline-flex;gap:10px;align-items:center;">
 			<input type="hidden" name="page" value="repostflow-history">
 
 			<select name="network">
 				<option value=""><?php esc_html_e( 'All Networks', 'repostflow' ); ?></option>
 				<?php foreach ( $networks as $slug => $net ) : ?>
-					<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( isset( $_GET['network'] ) ? sanitize_text_field( wp_unslash( $_GET['network'] ) ) : '', $slug ); ?>>
+					<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $rpf_filter_network, $slug ); ?>>
 						<?php echo esc_html( $net->get_label() ); ?>
 					</option>
 				<?php endforeach; ?>
@@ -31,9 +38,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<select name="status">
 				<option value=""><?php esc_html_e( 'All Statuses', 'repostflow' ); ?></option>
-				<option value="published" <?php selected( isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '', 'published' ); ?>><?php esc_html_e( 'Published', 'repostflow' ); ?></option>
-				<option value="failed" <?php selected( isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '', 'failed' ); ?>><?php esc_html_e( 'Failed', 'repostflow' ); ?></option>
-				<option value="queued" <?php selected( isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '', 'queued' ); ?>><?php esc_html_e( 'Queued', 'repostflow' ); ?></option>
+				<option value="published" <?php selected( $rpf_filter_status, 'published' ); ?>><?php esc_html_e( 'Published', 'repostflow' ); ?></option>
+				<option value="failed" <?php selected( $rpf_filter_status, 'failed' ); ?>><?php esc_html_e( 'Failed', 'repostflow' ); ?></option>
+				<option value="queued" <?php selected( $rpf_filter_status, 'queued' ); ?>><?php esc_html_e( 'Queued', 'repostflow' ); ?></option>
 			</select>
 
 			<input type="submit" class="button" value="<?php esc_attr_e( 'Filter', 'repostflow' ); ?>">
@@ -125,14 +132,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="tablenav bottom">
 			<div class="tablenav-pages">
 				<?php
-				echo paginate_links( array(
+				echo wp_kses_post( paginate_links( array(
 					'base'    => add_query_arg( 'paged', '%#%' ),
 					'format'  => '',
 					'current' => $current_page,
 					'total'   => $total_pages,
 					'prev_text' => '&laquo;',
 					'next_text' => '&raquo;',
-				) );
+				) ) );
 				?>
 			</div>
 		</div>

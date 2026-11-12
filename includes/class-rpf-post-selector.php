@@ -44,7 +44,7 @@ class RPF_Post_Selector {
 
 		// Exclude recently shared.
 		if ( ! empty( $exclude_ids ) ) {
-			$query_args['post__not_in'] = $exclude_ids;
+			$query_args['post__not_in'] = $exclude_ids; // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- bounded cooldown list.
 		}
 
 		// Category filters.
@@ -80,7 +80,7 @@ class RPF_Post_Selector {
 		// Fallback: relax cooldown by half and try again.
 		if ( $cooldown_days > 1 ) {
 			$relaxed_shared = $logger->get_recently_shared_ids( intval( $cooldown_days / 2 ) );
-			$query_args['post__not_in'] = array_unique( array_filter( array_map( 'absint', $relaxed_shared ) ) );
+			$query_args['post__not_in'] = array_unique( array_filter( array_map( 'absint', $relaxed_shared ) ) ); // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- bounded cooldown list.
 
 			$query = new WP_Query( $query_args );
 			if ( $query->have_posts() ) {
@@ -132,7 +132,7 @@ class RPF_Post_Selector {
 		);
 
 		if ( ! empty( $recently_shared ) ) {
-			$query_args['post__not_in'] = $recently_shared;
+			$query_args['post__not_in'] = $recently_shared; // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- bounded cooldown list.
 		}
 
 		$query = new WP_Query( $query_args );

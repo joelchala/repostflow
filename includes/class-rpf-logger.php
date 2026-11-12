@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// phpcs:disable WordPress.DB.DirectDatabaseQuery -- Custom plugin table; results are not suitable for object caching.
+
 /**
  * Class RPF_Logger
  */
@@ -58,7 +60,8 @@ class RPF_Logger {
 
 		if ( false === $result ) {
 			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-				error_log( '[RePostFlow] Logger insert failed: ' . $wpdb->last_error );
+				error_log( // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- only when WP_DEBUG is on.
+					 '[RePostFlow] Logger insert failed: ' . $wpdb->last_error );
 			}
 			return false;
 		}
@@ -126,19 +129,18 @@ class RPF_Logger {
 			$values[] = $args['network'];
 		}
 
+		// $where_clause is built only from literal fragments and $orderby is sanitized; all values use placeholders.
+		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
 		$where_clause = implode( ' AND ', $where );
 		$orderby      = sanitize_sql_orderby( $args['orderby'] . ' ' . $args['order'] );
 		$offset       = ( $args['page'] - 1 ) * $args['per_page'];
 
 		if ( ! empty( $values ) ) {
-			// $where_clause is built from literal fragments and $orderby is sanitized; values are placeholders.
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 			$query = $wpdb->prepare(
 				"SELECT * FROM %i WHERE $where_clause ORDER BY $orderby LIMIT %d OFFSET %d",
 				array_merge( array( $table ), $values, array( $args['per_page'], $offset ) )
 			);
 		} else {
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $orderby is sanitized with sanitize_sql_orderby().
 			$query = $wpdb->prepare(
 				"SELECT * FROM %i WHERE 1=1 ORDER BY $orderby LIMIT %d OFFSET %d",
 				$table,
@@ -147,7 +149,8 @@ class RPF_Logger {
 			);
 		}
 
-		return $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.NotPrepared -- prepared above.
+		return $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- prepared above.
+		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
 	}
 
 	/**
@@ -173,16 +176,18 @@ class RPF_Logger {
 			$values[] = $args['network'];
 		}
 
+		// $where_clause holds literal fragments only; values use placeholders.
+		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
 		$where_clause = implode( ' AND ', $where );
 
 		if ( ! empty( $values ) ) {
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery -- $where_clause holds literal fragments only.
 			return (int) $wpdb->get_var(
 				$wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE $where_clause", array_merge( array( $table ), $values ) )
 			);
 		}
 
-		return (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', $table ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+		return (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', $table ) );
+		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
 	}
 
 	/**

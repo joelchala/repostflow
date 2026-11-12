@@ -196,19 +196,23 @@ class RPF_Admin {
 			return;
 		}
 
-		$current_page = isset( $_GET['paged'] ) ? absint( $_GET['paged'] ) : 1; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only filter.
+		// Read-only list filters; no state is changed, so no nonce is needed.
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
+		$current_page = isset( $_GET['paged'] ) ? absint( $_GET['paged'] ) : 1;
 		$per_page     = 20;
 		$filter_args  = array(
 			'per_page' => $per_page,
 			'page'     => $current_page,
 		);
 
-		if ( ! empty( $_GET['network'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! empty( $_GET['network'] ) ) {
 			$filter_args['network'] = sanitize_text_field( wp_unslash( $_GET['network'] ) );
 		}
-		if ( ! empty( $_GET['status'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! empty( $_GET['status'] ) ) {
 			$filter_args['status'] = sanitize_text_field( wp_unslash( $_GET['status'] ) );
 		}
+
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
 
 		$history     = $this->plugin->logger->get_history( $filter_args );
 		$total_items = $this->plugin->logger->get_total_count( $filter_args );

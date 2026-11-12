@@ -178,7 +178,8 @@ abstract class RPF_Network_Abstract implements RPF_Network_Interface {
 	 */
 	protected function error( $message ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			error_log( '[RePostFlow] ' . $this->get_slug() . ' error: ' . $message );
+			error_log( // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- only when WP_DEBUG is on.
+				 '[RePostFlow] ' . $this->get_slug() . ' error: ' . $message );
 		}
 
 		return array(

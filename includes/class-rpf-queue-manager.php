@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// phpcs:disable WordPress.DB.DirectDatabaseQuery -- Custom plugin table; results are not suitable for object caching.
+
 /**
  * Class RPF_Queue_Manager
  */
