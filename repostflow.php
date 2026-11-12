@@ -3,7 +3,7 @@
  * Plugin Name: RePostFlow
  * Plugin URI:  https://github.com/joelchala/repostflow
  * Description: Automatically reshare your evergreen WordPress content to social media networks on a smart schedule. Supports X/Twitter, Facebook, Instagram, LinkedIn, Telegram, Pinterest, Threads, Bluesky, Discord & Mastodon.
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      Joel Chala
  * Author URI:  https://kaggchala.com/
  * License:     GPL v2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants.
-define( 'RPF_VERSION', '1.1.0' );
+define( 'RPF_VERSION', '1.1.1' );
 define( 'RPF_PLUGIN_FILE', __FILE__ );
 define( 'RPF_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RPF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

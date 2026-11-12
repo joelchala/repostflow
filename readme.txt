@@ -4,7 +4,7 @@ Tags: social media, auto share, repost, evergreen, scheduler
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -122,6 +122,11 @@ Yes. Each network has its own template that you can customize with variables suc
 
 == Changelog ==
 
+= 1.1.1 =
+* FIX: Escaped pagination output and replaced parse_url() with wp_parse_url()
+* FIX: Prepared the table drop on uninstall
+* IMPROVEMENT: Code now follows WordPress coding standards checks (Plugin Check)
+
 = 1.1.0 =
 * NEW: Pinterest support (image required, API v5)
 * NEW: Threads support
@@ -148,6 +153,9 @@ Yes. Each network has its own template that you can customize with variables suc
 * Encrypted credential storage
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Security and coding-standards fixes. Recommended for all users.
 
 = 1.1.0 =
 Major update with 5 new social networks: Pinterest, Threads, Bluesky, Discord and Mastodon. Please re-save your network settings after updating. Requires WordPress 6.2 or later.
